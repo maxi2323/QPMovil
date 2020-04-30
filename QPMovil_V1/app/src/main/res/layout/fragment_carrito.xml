@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qpmovil.Fragment_carrito">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorRojoOscuro">
+
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/ColorRojoOscuro"
+            android:src="@drawable/ic_carritomaxi" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="MI CARRITO"
+            android:textColor="#FFFBFB"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:background="@color/ColorRojoOscuro"
+            android:src="@drawable/tacho" />
+
+        <Button
+            android:id="@+id/btn_vaciarCarrito"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/ColorRojoOscuro"
+            android:text="Vaciar"
+            android:textColor="#FFFFFF" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="429dp">
+
+        <ListView android:id="@+id/lst_mostrar_pedido">
+
+
+        </ListView>
+
+    </TableRow>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:id="@+id/Imagen_carita"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_nocarrito" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+
+                android:id="@+id/TV_nohayDatos"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="No hay productos agregados al carrito"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/dv_lineaDivisora"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@color/ColorGris" />
+        </TableRow>
+
+
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/TV_textoTOTAL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total:"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+
+                android:id="@+id/TV_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textSize="24sp" />
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>

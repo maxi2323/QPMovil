@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#CF142B"/>  <!--- para el fondo del control  -->
+
+    <stroke android:width="10dp"
+        android:color="#CF142B"/>  <!--- para el delineado del control  -->
+
+        <corners android:radius="10px"/> <!--- darle las esquinas redondeadas  -->
+</shape>
+
+
+
+
