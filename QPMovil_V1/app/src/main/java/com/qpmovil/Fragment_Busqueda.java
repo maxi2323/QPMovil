@@ -175,7 +175,7 @@ public class Fragment_Busqueda extends Fragment {
     private void asociarVariables(View menu) {
         ET_BUSCA = menu.findViewById(R.id.busca);
         mostrar = menu.findViewById(R.id.Lista);
-        buscaXcodigo = menu.findViewById(R.id.buscaxbarras);
+        buscaXcodigo = menu.findViewById(R.id.buscaxbarras);//comento para el git
         buscaXdescripcion = menu.findViewById(R.id.buscaxitem);
     }
 
@@ -226,7 +226,6 @@ public class Fragment_Busqueda extends Fragment {
         private AsyncConsulta(Context contexto,String consulta)
         {
             contextoPriv = contexto;
-
         }
 
         @Override
@@ -234,16 +233,14 @@ public class Fragment_Busqueda extends Fragment {
             animacionespera = new alert_animacionespera(contextoPriv);
             animacionespera.Mostrar_Alert();
             bandera.valor=0;// reinicio el tipo de error
-
         }
 
         @Override
         protected Boolean doInBackground(Boolean... booleans) {
-
             StrictMode.ThreadPolicy politica = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(politica);
             condicion = BuscaPorCodigoODescripcion(consulta);
-            return condicion;
+            return null;
         }
 
         @Override

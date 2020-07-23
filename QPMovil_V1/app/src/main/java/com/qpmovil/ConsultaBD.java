@@ -63,21 +63,51 @@ public class ConsultaBD {
     {
         resultado=null;
         try {
-            resultado = ObtenerStatement(contexto).executeQuery(
+            resultado = ObtenerStatement(contexto).executeQuery("" +
+                    "IF (SELECT OBJECT_ID(N'tempdb..#tempCItems')) IS NOT NULL \n" +
+                    "       DROP TABLE #tempCItems \n" +
+                    "       \n" +
+                    "SELECT 0  id\n" +
+                    "       , dbo.PVItems.CODITM\n" +
+                    "       , PVItems.DESCRIPCION\n" +
+                    "       , PVItems.CODMADRE\n" +
+                    "       , STKACTUAL = isnull(dbo.PVItemsAcum.STKACTUAL,0)\n" +
+                    "       , Codtal, Codcol \n" +
+                    "       ,  NOMBRECOL   \n" +
+                    "       INTO #tempCItems   \n" +
+                    "FROM PVItems   \n" +
+                    "       LEFT JOIN  PVItemsAcum ON dbo.PVItems.CODITM = dbo.PVItemsAcum.CODITM \n" +
+                    "and codsuc = \n" +
+                    "       (      select INTVALOR\n" +
+                    "        from pvconfig\n" +
+                    "        where PROPIEDAD = 'CodSuc')\n" +
+                    "WHERE PVItems.CODMADRE like '%"+buscar+"%' /* <<-----  PARAMETRO */    \n" +
                     "\n" +
-                            "select sum(stkactual) STKACTUAL, I.CODMADRE, DESCRIPCION\n" +
-                            "from PVItemsAcum as A join PVItems as I on I.CODITM=A.CODITM join PVListasPrecios as P on p.CODITM=I.CODITM\n" +
-                            "where i.CODMADRE like '%"+ buscar +"%' and a.STKACTUAL>0 AND i.itemprefi='b' and P.expiracion is null and p.CODLIS in (\n" +
-                            "            select CODLIS\n" +
-                            "\t\t\tfrom PVListasPrecios\n" +
-                            "\t\t\twhere codlis like '"+codlista+"' \n" +
-                            "\t\t\tgroup by codlis )\n" +
-                            "\t\t\tand codSuc in ( select INTVALOR\n" +
-                            "                            from pvconfig\n" +
-                            "                            where PROPIEDAD = 'CodSuc')\n" +
-                            "                            group by i.CODMADRE,DESCRIPCION\n" +
-                            "                            order by STKACTUAL DESC");
-
+                    "INSERT INTO #tempCItems \n" +
+                    "SELECT  ROW_NUMBER() OVER (ORDER BY PVItems.CODITM) as id \n" +
+                    "       , PVItems.CODITM\n" +
+                    "       , PVItems.DESCRIPCION\n" +
+                    "       , PVItems.CODMADRE\n" +
+                    "       , STKACTUAL = isnull(PVItemsAcum.STKACTUAL,0)\n" +
+                    "       , codtal\n" +
+                    "       , codcol \n" +
+                    "       , PVItems.NOMBRECOL \n" +
+                    "FROM PVItems                           \n" +
+                    "       JOIN PVItemsAcum ON dbo.PVItems.CODITM = dbo.PVItemsAcum.CODITM \n" +
+                    "and codsuc = \n" +
+                    "       (      select INTVALOR\n" +
+                    "        from pvconfig\n" +
+                    "        where PROPIEDAD = 'CodSuc')                              \n" +
+                    "Where PVItems.CODMADRE in (select codmadre from #tempCItems) \n" +
+                    "       and pvitems.coditm not in (select coditm from #tempCItems)  \n" +
+                    "\n" +
+                    "select (sum(stkactual) - dbo.FN_STOCK_SENIADO(t.CODMADRE)\n" +
+                    "                     - dbo.FN_STOCK_EN_BULTOS(t.CodMADRE)\n" +
+                    "                     - dbo.FN_STOCK_PE(t.codMADRE,1)) as STKACTUAL, t.CODMADRE, DESCRIPCION\n" +
+                    "from #tempCItems t\n" +
+                    "where STKACTUAL>0\n" +
+                    "group by t.CODMADRE,DESCRIPCION\n" +
+                    "order by STKACTUAL DESC --creo que yasta no le aplique el isnull deberiamos que onda eso...");
             return resultado;
 
         } catch (SQLException e) {
@@ -128,18 +158,50 @@ public class ConsultaBD {
     {
         try {
             resultado=null;
-            resultado = ObtenerStatement(contexto).executeQuery("select sum(stkactual) STKACTUAL, I.CODMADRE, DESCRIPCION\n" +
-                    "from PVItemsAcum as A join PVItems as I on I.CODITM=A.CODITM join PVListasPrecios as P on p.CODITM=I.CODITM\n" +
-                    "where i.DESCRIPCION like '%"+ buscar+"%' and a.STKACTUAL>0 AND i.itemprefi='b' and P.expiracion is null and p.CODLIS in (\n" +
-                    "            select CODLIS\n" +
-                    "\t\t\tfrom PVListasPrecios\n" +
-                    "\t\t\twhere codlis like '"+codlista+"' \n" +
-                    "\t\t\tgroup by codlis )\n" +
-                    "and codSuc in ( select INTVALOR\n" +
-                    "\t\t\t\tfrom pvconfig\n" +
-                    "\t\t\t\twhere PROPIEDAD = 'CodSuc')\n" +
-                    "group by i.CODMADRE,DESCRIPCION\n" +
-                    "order by STKACTUAL DESC");
+            resultado = ObtenerStatement(contexto).executeQuery("IF (SELECT OBJECT_ID(N'tempdb..#tempCItems')) IS NOT NULL \n" +
+                    "       DROP TABLE #tempCItems \n" +
+                    "       \n" +
+                    "SELECT 0  id\n" +
+                    "       , dbo.PVItems.CODITM\n" +
+                    "       , PVItems.DESCRIPCION\n" +
+                    "       , PVItems.CODMADRE\n" +
+                    "       , STKACTUAL = isnull(dbo.PVItemsAcum.STKACTUAL,0)\n" +
+                    "       , Codtal, Codcol \n" +
+                    "       ,  NOMBRECOL   \n" +
+                    "       INTO #tempCItems   \n" +
+                    "FROM PVItems   \n" +
+                    "       LEFT JOIN  PVItemsAcum ON dbo.PVItems.CODITM = dbo.PVItemsAcum.CODITM \n" +
+                    "and codsuc = \n" +
+                    "       (      select INTVALOR\n" +
+                    "        from pvconfig\n" +
+                    "        where PROPIEDAD = 'CodSuc')\n" +
+                    "WHERE PVItems.descripcion like '%"+buscar+"%' /* <<-----  PARAMETRO */    \n" +
+                    "\n" +
+                    "INSERT INTO #tempCItems \n" +
+                    "SELECT  ROW_NUMBER() OVER (ORDER BY PVItems.CODITM) as id \n" +
+                    "       , PVItems.CODITM\n" +
+                    "       , PVItems.DESCRIPCION\n" +
+                    "       , PVItems.CODMADRE\n" +
+                    "       , STKACTUAL = isnull(PVItemsAcum.STKACTUAL,0)\n" +
+                    "       , codtal\n" +
+                    "       , codcol \n" +
+                    "       , PVItems.NOMBRECOL \n" +
+                    "FROM PVItems                           \n" +
+                    "       JOIN PVItemsAcum ON dbo.PVItems.CODITM = dbo.PVItemsAcum.CODITM \n" +
+                    "and codsuc = \n" +
+                    "       (      select INTVALOR\n" +
+                    "        from pvconfig\n" +
+                    "        where PROPIEDAD = 'CodSuc')                              \n" +
+                    "Where PVItems.CODMADRE in (select codmadre from #tempCItems) \n" +
+                    "       and pvitems.coditm not in (select coditm from #tempCItems)  \n" +
+                    "\n" +
+                    "select (sum(stkactual) - dbo.FN_STOCK_SENIADO(t.CODMADRE)\n" +
+                    "                     - dbo.FN_STOCK_EN_BULTOS(t.CodMADRE)\n" +
+                    "                     - dbo.FN_STOCK_PE(t.codMADRE,1)) as STKACTUAL, t.CODMADRE, DESCRIPCION\n" +
+                    "from #tempCItems t\n" +
+                    "where STKACTUAL>0\n" +
+                    "group by t.CODMADRE,DESCRIPCION\n" +
+                    "order by STKACTUAL DESC --creo que yasta no le aplique el isnull deberiamos que onda eso...");
 
             Log.i("info", "termine de hacer la consulta y el resultado es:"+resultado);
             return resultado;
@@ -159,17 +221,27 @@ public class ConsultaBD {
     public ResultSet ConsultarPrecioSegunTabla(Context contexto, String valorAbuscar,String codlista, String columna){
 
         try{
-            resultado = ObtenerStatement(contexto).executeQuery( "select I.CODCOL, I.CODTAL, I.DESCRIPCION, A.STKACTUAL, P.PRECIO, I.CODITM, I.CODMADRE, i.NOMBRECOL\n" +
-                    "from PVItems i join PVItemsAcum a on I.CODITM = A.CODITM join PVListasPrecios P on p.CODITM=I.CODITM\n" +
-                    "where  i." + columna + " = '" + valorAbuscar + "' and i.itemprefi='b' and a.CODSUC in (\n" +
-                    "\t\t\tselect INTVALOR \n" +
-                    "\t\t\tfrom pvconfig\n" +
-                    "\t\t\twhere PROPIEDAD = 'CodSuc')\n" +
-                    "and p.EXPIRACION is null and p.CODLIS = (\n" +
-                    "            select CODLIS\n" +
-                    "\t\t\tfrom PVListasPrecios\n" +
-                    "\t\t\twhere codlis like '"+codlista+"' \n" +
-                    "\t\t\tgroup by codlis )");
+            resultado = ObtenerStatement(contexto).executeQuery( "SELECT I.CODCOL, I.CODTAL, I.DESCRIPCION, a.STKACTUAL, P.PRECIO, I.CODITM, I.CODMADRE, i.NOMBRECOL\n" +
+                    "FROM PVListasPrecios P  \n" +
+                    "\tjoin PVItemsAcum as a on p.CODITM=a.CODITM\n" +
+                    "\tJOIN pvitems I ON P.CODITM = I.CODITM  \n" +
+                    "\tLEFT JOIN (SELECT precio1 = 'Ver'\n" +
+                    "\t\t\t\t, precio\n" +
+                    "\t\t\t\t, codmadre\n" +
+                    "\t\t\t\t, CODLIS  \n" +
+                    "\t\t\tFROM PVListasPrecios L       \n" +
+                    "\t\t\t\tLEFT JOIN pvitems I ON L.CODITM=I.CODITM            \n" +
+                    "\t\t\tWhere precio > 0            \n" +
+                    "GROUP BY precio, CODMADRE, CODLIS) I2 ON I.CODMADRE = I2.CODMADRE \n" +
+                    "\t\t\tand P.precio <> I2.precio  \n" +
+                    "\t\t\tand P.CODLIS = i2.CODLIS \n" +
+                    "WHERE I."+columna+" = '"+valorAbuscar+"' /* <<-----  PARAMETRO */ \n" +
+                    "\t\tand P.PRECIO > 0\n" +
+                    "\t\tand p.CODLIS = \n" +
+                    "\t(\t\t\tselect CODLIS\n" +
+                    "            \tfrom PVListasPrecios\n" +
+                    "            \twhere codlis like (select STRVALOR from PVConfig where propiedad='listapreciopublico')\n" +
+                    "            \tgroup by codlis )");
 
 
 
@@ -269,7 +341,6 @@ public class ConsultaBD {
                 //Busco x codigo Orinal sobre la columna CODITM=========================================
                 if(!resultado.isBeforeFirst())
                 {
-
                     resultado = ConsultarPrecioSegunTabla(contexto, original, codlista, "coditm");
 
                     if (resultado.isBeforeFirst())
