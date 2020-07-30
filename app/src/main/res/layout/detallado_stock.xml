@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/barra_volver"
+            android:layout_width="match_parent"
+
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/ColorRojoOscuro">
+
+            <ImageButton
+                android:id="@+id/IB_volver"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/ColorRojoOscuro"
+                android:contentDescription="imagButton"
+                android:src="@drawable/ic_atras" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow
+                android:layout_width="100dp"
+                android:layout_height="100dp">
+
+
+                <TextView
+                    android:id="@+id/det_detalle_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:longClickable="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Detalle de existencias"
+                    android:textSize="20sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="100dp"
+                android:layout_height="100dp">
+
+
+                <TextView
+                    android:id="@+id/det_codmadre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:longClickable="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:divider="@drawable/linea"
+                android:src="@color/ColoRojoClaro">
+
+
+                <TextView
+
+                    android:id="@+id/det_Color23"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="40dp"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:text="@string/Color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/det_talle23"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:text="Talle"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/det_Stock23"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:text="@string/Stock"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/det_Precio"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:text="@string/Precio"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/agregarCarrito"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:text="@string/agregarCarrito"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1">
+
+                <ListView
+                    android:id="@+id/det_codigoItemStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="@integer/viewfinder_border_width"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:divider="@drawable/linea" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

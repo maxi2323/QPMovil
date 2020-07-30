@@ -1,0 +1,71 @@
+<resources>
+
+    <string name="app_name">BAS</string>
+    <string name="web_SAC">www.sac.bas.com.ar</string>
+    <string name="Buenos_Aires_Software">Buenos Aires Software</string>
+    <string name="QP">QP MÓVIL</string>
+    <string name="Servidor">Servidor</string>
+    <string name="Instancia">Instancia</string>
+    <string name="Base">Base</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Password">Password</string>
+    <string name="Guardar">Guardar</string>
+    <string name="GuardarConfiguracion">Guardar Configuración</string>
+    <string name="IngresarQR">Ingresar Con QR</string>
+    <string name="TestConexion">Test de Conexión</string>
+    <string name="Salir">Salir</string>
+    <string name="TextoSalir">¿Desea cerrar la Aplicacion?</string>
+    <string name="Home">Home</string>
+    <string name="items">Items</string>
+    <string name="Precio">Precio</string>
+    <string name="agregarCarrito">Agregar</string>
+    <string name="Stock">Stock</string>
+    <string name="Existencias">Existencias</string>
+    <string name="DatosConexion">Datos Conexión</string>
+    <string name="Codigo">Código</string>
+    <string name="Color">Color</string>
+    <string name="Descripcion">Descripción</string>
+    <string name="codBarra">Código de Barra</string>
+    <string name="Menu_compartir">Compartir</string>
+    <string name="Menu_enviar">Enviar</string>
+    <string name="Menu_configuracion">Configuraciones</string>
+    <string name="Menu_Comunicacion">Comunicación</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Ingresar_Producto">Ingresar Producto</string>
+    <string name="Buscar_por_Codigo">Buscar por Código</string>
+    <string name="Buscar_por_Descripcion">Por descripción</string>
+    <string name="BUSQUEDA">Búsqueda</string>
+    <string name="Consulta_Por_ítem">Consulta por ítem</string>
+    <string name="Ingresar_codigo_SKU">Ingresar código (SKU)</string>
+    <string name="Buscar_codigo_Barras">Buscar con código de barras</string>
+    <string name="Buscar_codigo_item">Buscar con código de ítem</string>
+    <string name="Detalle_existencias">Detalle de existencias</string>
+    <string name="Ing_cod_descripcion">Ingresar código/descripción</string>
+    <string name="busc_por_cod_madre">Por código Madre</string>
+    <string name="Carrito">Carrito</string>
+    <string name="Confirmar">Confirmar</string>
+    <string name="title_activity_formulario">Formulario</string>
+
+    <string name="title_activity_navegador__principal">Navegador_Principal</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+
+
+    <string name="menu_tools">Tools</string>
+
+    <string-array name="OpcionesPromo">
+        <item>S (Hoy + 7 dias)</item>
+        <item>D (Hoy)</item>
+        <item>H (Ahora)</item>
+    </string-array>
+
+
+</resources>
+
+
+

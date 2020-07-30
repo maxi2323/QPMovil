@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.qpmovil.Fragment_Home">
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/ColorTransparente"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/IV_Logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:layout_marginLeft="20dp">
+
+
+            <TextView
+                android:id="@+id/textView18"
+                style="@android:style/Widget.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienvenida a QP a Movil"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:layout_marginTop="20dp">
+
+
+            <TextView
+                android:id="@+id/textView19"
+                style="@android:style/Widget.DeviceDefault.Light.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Gestioná"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:layout_marginTop="10dp">
+
+
+            <TextView
+                android:id="@+id/textView20"
+                style="@android:style/Widget.DeviceDefault.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Operá"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView21"
+                style="@android:style/Widget.DeviceDefault.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Controlá"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp">
+
+            <TextView
+                android:id="@+id/textView22"
+                style="@android:style/Widget.DeviceDefault.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Accede a nuetra WEB"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/textView23"
+                style="@android:style/Widget.DeviceDefault.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Comunicate con nosotros"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/TR_REDES"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="bottom">
+
+
+        <ImageButton
+            android:id="@+id/IB_linkedin"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+
+            android:layout_weight="1"
+            android:background="@color/ColorTransparente"
+            android:scaleType="centerInside"
+            android:src="@drawable/linkedin" />
+
+        <ImageButton
+            android:id="@+id/IB_facebook"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+
+            android:layout_weight="1"
+            android:background="@color/ColorTransparente"
+            android:scaleType="centerInside"
+            android:src="@drawable/facebook" />
+
+        <ImageButton
+            android:id="@+id/IB_instagram"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+
+            android:layout_weight="1"
+            android:background="@color/ColorTransparente"
+            android:scaleType="centerInside"
+            android:src="@drawable/instagram" />
+
+        <ImageButton
+            android:id="@+id/IB_youtube"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/youtube" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/et_Color"
+                        android:layout_width="105dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/et_talle"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/et_stock"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textIsSelectable="true"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/et_precio"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="0"
+                        android:inputType="textPersonName"
+                        android:textSize="14sp" />
+
+                    <ImageButton
+                        android:id="@+id/imagensumar"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/ColorTransparente"
+                        android:focusable="false"
+                        app:srcCompat="@drawable/ic_agregarcarrito" />
+
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

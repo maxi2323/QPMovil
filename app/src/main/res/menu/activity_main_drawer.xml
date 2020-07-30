@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/Home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/Home"
+            android:checked="true"
+
+            />
+
+
+        <item
+            android:id="@+id/codBarra"
+            android:icon="@drawable/ic_producto"
+            android:title="@string/Consulta_Por_ítem"
+
+            />
+        <item
+            android:id="@+id/Stock"
+            android:icon="@drawable/ic_busqueda"
+            android:title="@string/BUSQUEDA"
+
+            />
+        <item
+            android:id="@+id/Carrito"
+            android:icon="@drawable/ic_carrito"
+            android:title="@string/Carrito"
+
+            />
+        <item
+            android:id="@+id/Promocion"
+            android:icon="@drawable/ic_promo_24dp"
+            android:title="Promocíon"
+
+            />
+    </group>
+
+
+
+    <group android:checkableBehavior="single" >
+
+        <item
+            android:id="@+id/DatosConexion"
+            android:icon="@drawable/ic_datos_conexion"
+            android:title="@string/DatosConexion"
+            />
+
+
+        <item
+            android:id="@+id/salir"
+            android:icon="@drawable/ic_salida"
+            android:title="@string/Salir"
+
+            />
+    </group>
+
+
+
+</menu>

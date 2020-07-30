@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qpmovil.Fragment_datosConexion">
+
+
+    <ScrollView
+        android:id="@+id/ScrollViewgeneral"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/imagen_datos_conexion"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/TR_contenido"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp">
+
+                <TableRow
+                    android:id="@+id/TR_servidor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="130dp"
+                    android:gravity="center"
+                    android:paddingTop="10dp">
+
+
+                    <EditText
+                        android:id="@+id/Edit_Servidor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/Servidor"
+                        android:inputType="textPersonName"
+                        android:textSize="20dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_instancia"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+
+                    <EditText
+                        android:id="@+id/Edit_instancia"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/Instancia"
+                        android:inputType="textPersonName"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_base"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+
+                    <EditText
+                        android:id="@+id/Edit_base"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/Base"
+                        android:inputType="textPersonName"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+
+                    <EditText
+                        android:id="@+id/Edit_usuario"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/Usuario"
+                        android:inputType="textPersonName"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:paddingTop="10dp">
+
+                    <EditText
+                        android:id="@+id/Edit_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/Password"
+                        android:inputType="textPassword"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_QR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="25dp">
+
+                    <Button
+                        android:id="@+id/bt_IngresarQR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginRight="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/formato_redondeo_rojo"
+                        android:foregroundGravity="center_horizontal"
+                        android:text="@string/IngresarQR"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="30dp">
+
+                    <Button
+                        android:id="@+id/btn_test"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginRight="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/formato_redondeo_rojo"
+                        android:text="@string/TestConexion"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TR_guardar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="30dp">
+
+                    <Button
+                        android:id="@+id/btn_guardar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginRight="70dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/formato_redondeo_rojo"
+                        android:text="@string/Guardar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+
+
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
