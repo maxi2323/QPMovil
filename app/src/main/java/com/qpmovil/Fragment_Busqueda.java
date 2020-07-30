@@ -221,7 +221,7 @@ public class Fragment_Busqueda extends Fragment {
     private class AsyncConsulta extends AsyncTask<Boolean,Integer,Boolean> {
         boolean condicion;
         Context contextoPriv;
-
+//aaaaaaaa
 
         private AsyncConsulta(Context contexto,String consulta)
         {
